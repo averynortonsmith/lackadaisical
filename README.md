@@ -19,7 +19,7 @@
 [Composition with other Command Line Tools](#composition-with-other-command-line-tools)
 
 **Other Info:**  
-[Comparison with similar Tools](#comparison-with-similar-tools)  
+[Comparison with Similar Tools](#comparison-with-similar-tools)  
 [Sample Output](#sample-output)
 
 #### Lack.py Call Format:
@@ -108,20 +108,9 @@ with open("output.txt", "w") as file:
 ```shell
 $ simulate initCells.txt 100 | showCells >> output.txt
 ```
-In this example, the file `initCells.txt` contains the expression:  
-```
-[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
- [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
- [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
- [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
- [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
- [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0], 
- [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
- [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0], 
- [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
- [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-```
-Which is parsed by the `ast.literal_eval` function before it becomes an argument.  
+The file [`initCells.txt`](https://github.com/averynortonsmith/lackadaisical/blob/master/initCells.txt) 
+contains a Python expression (a list of lists), which is 
+parsed by the `ast.literal_eval` function before it becomes an argument.  
 Piped argument strings containing Python expressions are also parsed in this way.  
 For example: `simulate initCells.txt 100` is equivalent to `cat initCells.txt | simulate 100`.
 
