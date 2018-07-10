@@ -36,6 +36,7 @@ def runScript():
     for arg in processedArgs:
         if isKeywordArg(arg):
             # arg has the form "name=value"
+            # only split at the first '=' character
             name, value = arg.split("=", 1)
             keywordArgs[name] = tryEval(value)
 
