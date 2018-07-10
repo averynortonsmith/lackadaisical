@@ -7,9 +7,8 @@ def simulate(initialCells, iterations, showSteps=False, delay=0):
         if showSteps:
             print("iteration ", x + 1, "of", str(iterations) + ":")
             print(showCells(cells) + "\n")
-        cells = tick(cells)
-        if showSteps: 
             time.sleep(delay)
+        cells = tick(cells)            
     if not showSteps: return cells
 
 def zeroCells(rows, columns):
