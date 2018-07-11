@@ -132,7 +132,7 @@ simulate(initCells, 100, showSteps=True, delay=.04)
 ```
 *using lack.py:*
 ```shell
-$ curl https://averyn.scripts.mit.edu/lack/initCells.txt | simulate 100 --showSteps delay=.04
+$ curl -s https://averyn.scripts.mit.edu/lack/initCells.txt | simulate 100 --showSteps delay=.04
 ```
 Since command line functions made with lack.py always take strings as arguments and return string values,
 they can be used with many existing command line tools.
