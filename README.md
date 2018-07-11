@@ -32,9 +32,9 @@ The script `gameOfLife.py` contains functions for running simulations of
 [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) (cellular autonomaton).  
 The examples use the following aliases:
 ```shell
-alias simulate="./lack.py gameOfLife.py simulate"
-alias showCells="./lack.py gameOfLife.py showCells"
-alias randomCells="./lack.py gameOfLife.py randomCells"
+$ alias simulate="./lack.py gameOfLife.py simulate"
+$ alias showCells="./lack.py gameOfLife.py showCells"
+$ alias randomCells="./lack.py gameOfLife.py randomCells"
 ```
 The variable `initCells` contains an array of arrays of binary digits 
 (see [initCells.txt](https://github.com/averynortonsmith/lackadaisical/blob/master/initCells.txt))
