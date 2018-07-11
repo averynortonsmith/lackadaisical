@@ -150,7 +150,7 @@ they can be used with many existing command line tools.
 **shmuelamar/[cbox](https://github.com/shmuelamar/cbox)**  
 - supports pip for installation
 - support for error handling, concurrency, streams, documentation
-- supports piped data (for text only)
+- supports piped data
 - doesn't support filename arguments
 - requires default values or type annotations for expression parsing
 - requires modification of original script (import, decorators)
