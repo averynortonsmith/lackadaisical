@@ -90,7 +90,13 @@ $ randomCells 10 30 | simulate 100 | showCells
 ```
 A value sent through a pipe becomes the first argument to the function.  
 If the piped text contains a Python expression, the expression is parsed and its value becomes the argument.      
-For example: `arg0 | foo arg1` is equivalent to `foo arg0 arg1`.
+For example: `arg0 | foo arg1` is equivalent to `foo arg0 arg1`.  
+
+**A Note about Serialization:**   
+*Lack.py automatically serializes return values using Python's `repr` function.
+Since scripts run with lack.py always return text, their outputs can be easily written to files
+or piped into other text-based command line programs. This does mean however that data piped between scripts can only
+contain simple Python values: strings, lists, dicts, numbers, etc. (specifically, anything which can be parsed by `ast.literal_eval`) which does not include functions, instances of user-defined classes, etc.*
 
 #### File Input and Output:
 *python:*
