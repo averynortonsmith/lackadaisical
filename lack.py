@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import sys
+import os
 import inspect
 import ast
 
@@ -11,8 +12,15 @@ import ast
 def runScript():
     assert len(sys.argv) >= 3
 
-    scriptName = sys.argv[1]
-    script = __import__(scriptName.strip(".py"))
+    scriptPath = sys.argv[1]
+    scriptDir  = os.path.dirname(scriptPath)
+    scriptName = os.path.basename(scriptPath).strip(".py")
+    currentDir = os.path.dirname(os.path.abspath(__file__))
+    importDir  = os.path.abspath(os.path.join(currentDir, scriptDir))
+
+    sys.path.append(importDir)
+
+    script = __import__(scriptName)
     
     functionName = sys.argv[2]
     function = getattr(script, functionName)
@@ -90,8 +98,11 @@ def tryEval(string):
         contents = open(string).read()
         return ast.literal_eval(contents)
     except (FileNotFoundError, SyntaxError):
-        return ast.literal_eval(string)       
-
+        try:
+            return ast.literal_eval(string)
+        except ValueError:
+            message = "cannot parse arg '" + string + "' as expression or filename"
+            raise RuntimeError(message)
 
 # if there's piped data, set as first argument in args list
 def getPipedData():
