@@ -34,13 +34,6 @@ def runScript():
     # piped data becomes initial arg
     argValues = getPipedData()
 
-    params, _, _, defaultValues = inspect.getargspec(function)
-    if defaultValues:
-        # names of params with default values
-        defaults = params[-len(defaultValues):]
-    else:
-        defaults = []
-
     for arg in processedArgs:
         if isKeywordArg(arg):
             # arg has the form "name=value"
